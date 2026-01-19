@@ -1,4 +1,5 @@
 "use client";
+// Updated for Vercel deployment
 import { useState } from "react";
 
 export default function Calculator() {
