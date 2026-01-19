@@ -6,12 +6,23 @@ export default function Home() {
 const [financial, setFinancial] = useState(5);
 const [time, setTime] = useState(5);
 const [lifestyle, setLifestyle] = useState(5);
+const [income, setIncome] = useState(5000);
+const [expenses, setExpenses] = useState(3500);
+const [expenseChange, setExpenseChange] = useState(0);
 const [result, setResult] = useState(null);
 
 const calculateScore = () => {
 const score = Math.round((financial + time + lifestyle) / 3);
 setResult(score);
 };
+
+const calculateSavings = () => {
+const monthlySavings = expenseChange;
+const yearlySavings = monthlySavings * 12;
+return { monthlySavings, yearlySavings };
+};
+
+const { monthlySavings, yearlySavings } = calculateSavings();
 
 return (
 <main
@@ -66,6 +77,78 @@ value={financial}
 onChange={(e) => setFinancial(Number(e.target.value))}
 style={{ width: "100%", marginTop: "10px" }}
 />
+
+{/* Savings calculator inputs */}
+<div style={{ marginTop: "20px" }}>
+<label style={{ fontSize: "14px", fontWeight: "500" }}>
+Current Monthly Income:
+</label>
+<input
+type="number"
+value={income}
+onChange={(e) => setIncome(Number(e.target.value))}
+style={{
+width: "100%",
+padding: "6px",
+borderRadius: "6px",
+marginTop: "4px",
+border: "1px solid #374151",
+background: "#111827",
+color: "#e5e7eb",
+}}
+/>
+
+<label style={{ fontSize: "14px", fontWeight: "500", marginTop: "10px" }}>
+Current Monthly Expenses:
+</label>
+<input
+type="number"
+value={expenses}
+onChange={(e) => setExpenses(Number(e.target.value))}
+style={{
+width: "100%",
+padding: "6px",
+borderRadius: "6px",
+marginTop: "4px",
+border: "1px solid #374151",
+background: "#111827",
+color: "#e5e7eb",
+}}
+/>
+
+<label style={{ fontSize: "14px", fontWeight: "500", marginTop: "10px" }}>
+Expected Change in Expenses (savings or extra costs):
+</label>
+<input
+type="number"
+value={expenseChange}
+onChange={(e) => setExpenseChange(Number(e.target.value))}
+style={{
+width: "100%",
+padding: "6px",
+borderRadius: "6px",
+marginTop: "4px",
+border: "1px solid #374151",
+background: "#111827",
+color: "#e5e7eb",
+}}
+/>
+</div>
+
+{/* Display savings */}
+<div
+style={{
+marginTop: "15px",
+padding: "12px",
+borderRadius: "8px",
+background: "#111827",
+border: "1px solid #374151",
+color: "#a5b4fc",
+}}
+>
+<p>Estimated Monthly Savings: ${monthlySavings}</p>
+<p>Estimated Yearly Savings: ${yearlySavings}</p>
+</div>
 </div>
 
 {/* Time */}
