@@ -6,9 +6,11 @@ export default function Home() {
 const [financial, setFinancial] = useState(5);
 const [time, setTime] = useState(5);
 const [lifestyle, setLifestyle] = useState(5);
+
 const [income, setIncome] = useState(5000);
 const [expenses, setExpenses] = useState(3500);
 const [expenseChange, setExpenseChange] = useState(0);
+
 const [result, setResult] = useState(null);
 
 const calculateScore = () => {
@@ -17,7 +19,9 @@ setResult(score);
 };
 
 const calculateSavings = () => {
-const monthlySavings = expenseChange;
+const currentSurplus = income - expenses;
+const newSurplus = income - (expenses - expenseChange);
+const monthlySavings = newSurplus - currentSurplus;
 const yearlySavings = monthlySavings * 12;
 return { monthlySavings, yearlySavings };
 };
