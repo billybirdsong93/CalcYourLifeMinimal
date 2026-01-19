@@ -10,16 +10,12 @@ export default function Calculator() {
   const [expenses, setExpenses] = useState(3500);
   const [expenseChange, setExpenseChange] = useState(0);
 
-  // Correct savings calculation using all three inputs
-  const calculateSavings = () => {
-    const currentSurplus = income - expenses;
-    const newSurplus = income - (expenses - expenseChange);
-    const monthlySavings = newSurplus - currentSurplus;
-    const yearlySavings = monthlySavings * 12;
-    return { monthlySavings, yearlySavings };
-  };
+  // Correct savings calculation
+  const currentSurplus = income - expenses;
+  const newSurplus = income - (expenses - expenseChange);
+  const monthlySavings = newSurplus - currentSurplus;
+  const yearlySavings = monthlySavings * 12;
 
-  const { monthlySavings, yearlySavings } = calculateSavings();
   const score = Math.round((financial + time + lifestyle) / 3);
 
   return (
@@ -28,11 +24,10 @@ export default function Calculator() {
         <h1 style={{ textAlign: "center" }}>Life Decision Calculator</h1>
         <p style={{ textAlign: "center", color: "#94a3b8" }}>Evaluate how a decision impacts your money, time and daily life.</p>
 
-        {/* Financial Slider */}
         <label>Financial Stability — {financial}/10</label>
+        <p style={{ color: "#94a3b8" }}>Consider income reliability, savings, debt and how well you could handle unexpected expenses without stress.</p>
         <input type="range" min="1" max="10" value={financial} onChange={(e) => setFinancial(Number(e.target.value))} style={{ width: "100%", marginBottom: "20px" }} />
 
-        {/* Income / Expenses Inputs */}
         <label>Current Monthly Income:</label>
         <input type="number" value={income} onChange={(e) => setIncome(Number(e.target.value))} style={{ width: "100%", marginBottom: "10px", padding: "6px", borderRadius: "6px", border: "1px solid #374151", background: "#111827", color: "#e5e7eb" }} />
 
@@ -42,24 +37,23 @@ export default function Calculator() {
         <label>Expected Change in Expenses (savings or extra costs):</label>
         <input type="number" value={expenseChange} onChange={(e) => setExpenseChange(Number(e.target.value))} style={{ width: "100%", marginBottom: "10px", padding: "6px", borderRadius: "6px", border: "1px solid #374151", background: "#111827", color: "#e5e7eb" }} />
 
-        {/* Display Savings */}
         <div style={{ marginTop: "10px", padding: "12px", borderRadius: "8px", background: "#111827", border: "1px solid #374151", color: "#a5b4fc" }}>
           <p>Estimated Monthly Savings: ${monthlySavings}</p>
           <p>Estimated Yearly Savings: ${yearlySavings}</p>
         </div>
 
-        {/* Time Slider */}
         <label style={{ marginTop: "20px" }}>Time Freedom — {time}/10</label>
+        <p style={{ color: "#94a3b8" }}>Think about commute time, work hours, schedule flexibility and how much personal time you gain or lose with this decision.</p>
         <input type="range" min="1" max="10" value={time} onChange={(e) => setTime(Number(e.target.value))} style={{ width: "100%", marginBottom: "20px" }} />
 
-        {/* Lifestyle Slider */}
         <label>Lifestyle Satisfaction — {lifestyle}/10</label>
+        <p style={{ color: "#94a3b8" }}>How this choice affects your daily stress, energy levels, family time, hobbies, health and overall enjoyment of life.</p>
         <input type="range" min="1" max="10" value={lifestyle} onChange={(e) => setLifestyle(Number(e.target.value))} style={{ width: "100%", marginBottom: "20px" }} />
 
-        {/* Decision Score */}
         <div style={{ marginTop: "20px", padding: "12px", borderRadius: "8px", background: "#020617", border: "1px solid #1e293b", textAlign: "center" }}>
           <h2>Overall Decision Score</h2>
           <p style={{ fontSize: "32px", fontWeight: "700" }}>{score} / 10</p>
+          <p style={{ color: "#94a3b8" }}>This score reflects how balanced the decision feels across money, time and quality of life.</p>
         </div>
       </div>
     </div>
