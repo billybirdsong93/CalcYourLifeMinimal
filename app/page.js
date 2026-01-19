@@ -1,4 +1,4 @@
-// app/page.js
+// Updated for Vercel deployment
 import Calculator from "./Calculator";
 
 export default function Page() {
