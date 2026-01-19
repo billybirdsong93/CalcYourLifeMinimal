@@ -46,7 +46,7 @@ marginBottom: "36px",
 fontSize: "15px",
 }}
 >
-Evaluate how a decision impacts your money, time, and daily life.
+Evaluate how a decision impacts your money, time and daily life.
 </p>
 
 {/* Financial */}
@@ -55,7 +55,7 @@ Evaluate how a decision impacts your money, time, and daily life.
 Financial Stability — {financial}/10
 </label>
 <p style={{ fontSize: "14px", color: "#94a3b8", marginTop: "6px" }}>
-Consider income reliability, savings, debt, and how well you could
+Consider income reliability, savings, debt and how well you could
 handle unexpected expenses without stress.
 </p>
 <input
@@ -74,7 +74,7 @@ style={{ width: "100%", marginTop: "10px" }}
 Time Freedom — {time}/10
 </label>
 <p style={{ fontSize: "14px", color: "#94a3b8", marginTop: "6px" }}>
-Think about commute time, work hours, schedule flexibility, and how
+Think about commute time, work hours, schedule flexibility and how
 much personal time you gain or lose with this decision.
 </p>
 <input
@@ -94,7 +94,7 @@ Lifestyle Satisfaction — {lifestyle}/10
 </label>
 <p style={{ fontSize: "14px", color: "#94a3b8", marginTop: "6px" }}>
 How this choice affects your daily stress, energy levels, family
-time, hobbies, health, and overall enjoyment of life.
+time, hobbies, health and overall enjoyment of life.
 </p>
 <input
 type="range"
@@ -140,7 +140,7 @@ textAlign: "center",
 </p>
 <p style={{ fontSize: "14px", color: "#94a3b8", marginTop: "8px" }}>
 This score reflects how balanced the decision feels across money,
-time, and quality of life.
+time and quality of life.
 </p>
 </div>
 )}
